@@ -69,8 +69,8 @@ export default function Footer() {
           <p className="text-sm text-gray-500">
             © {new Date().getFullYear()} GFG RIT Campus Hub. All rights reserved.
           </p>
-          <p className="text-sm text-gray-500 flex items-center gap-1">
-            Made with <Heart size={14} className="text-red-500 fill-red-500" /> by GFG RIT Team
+          <p className="text-sm text-gray-500">
+            Made by Team Hack Squad
           </p>
         </div>
       </div>

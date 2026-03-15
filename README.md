@@ -1,6 +1,6 @@
 # 🚀 GFG RIT Campus Hub
 
-**Official digital platform for the GeeksforGeeks Campus Club at Rajalakshmi Institute of Technology (RIT), Chennai.**
+**Digital platform for the GeeksforGeeks Campus Club at Rajalakshmi Institute of Technology (RIT), Chennai.**
 
 A comprehensive student engagement and learning platform that centralizes coding challenges, event registrations, learning resources, and AI-powered mentorship in a single premium dashboard.
 
@@ -115,8 +115,8 @@ gfg/
 ---
 
 ## 📄 License
-MIT © GFG RIT Campus Club
+Team Hack Squad (AI & DS) -RIT chennai
 
 ---
-Made with 💚 by the **GFG RIT Team**
+Made by the **Diwakar B**
 https://gf-gweb.vercel.app
