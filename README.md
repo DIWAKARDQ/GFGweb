@@ -2,177 +2,121 @@
 
 **Official digital platform for the GeeksforGeeks Campus Club at Rajalakshmi Institute of Technology (RIT), Chennai.**
 
-![Next.js](https://img.shields.io/badge/Next.js-14-black) ![Express](https://img.shields.io/badge/Express.js-4.x-green) ![MongoDB](https://img.shields.io/badge/MongoDB-8.x-brightgreen) ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue) ![Tailwind](https://img.shields.io/badge/Tailwind_CSS-4.x-38bdf8)
+A comprehensive student engagement and learning platform that centralizes coding challenges, event registrations, learning resources, and AI-powered mentorship in a single premium dashboard.
 
 ---
 
-## ✨ Features
-
-| Feature | Description |
-|---------|-------------|
-| 🏠 **Landing Page** | Hero section, about, stats, upcoming events, features showcase |
-| 📅 **Event Management** | Create/edit/delete events, registration, capacity tracking |
-| 📚 **Learning Resources** | DSA, Web Dev, AI/ML, Interview Prep with category tabs |
-| 💻 **Daily Challenges** | Daily coding problems with streak tracking and badges |
-| 📊 **Student Dashboard** | Stats, GitHub contribution graph, achievements, progress charts |
-| 🏆 **Leaderboard** | Weekly/monthly/all-time rankings with point breakdowns |
-| 🤖 **AI Assistant** | Chat interface for coding help, debugging, and explanations |
-| ⚙️ **Settings** | Theme (dark/light), language (EN/TA/HI), GitHub, notifications |
-| 🛡️ **Admin Panel** | Dashboard analytics, manage users/events/challenges/resources |
-| 🔐 **Authentication** | JWT + GitHub OAuth with role-based access (student/admin) |
-| 🌐 **i18n** | English, Tamil, Hindi translations |
-| 📧 **Email** | Event reminders via Nodemailer |
+## 🌐 Live Demo
+- **Frontend (Website)**: [gf-gweb.vercel.app](https://gf-gweb.vercel.app)
+- **Backend (API Engine)**: [gfgweb.onrender.com](https://gfgweb.onrender.com)
 
 ---
 
-## 🛠️ Tech Stack
+## 1. Project Overview
+- **Objective**: To foster a competitive and collaborative coding culture at RIT by bridging the gap between DSA theory and industry-level practice.
+- **Key Features**: 
+  - **Real-time IDE**: Multi-language code execution powered by Piston API.
+  - **AI Mentor**: Context-aware coding help using Gemini 2.0 via OpenRouter.
+  - **Student Dashboard**: Visualized heatmaps, streaks, and difficulty distribution charts.
+  - **Leaderboard**: Real-time point synchronization for challenges and campus events.
+- **Problem Solved**: Replaces fragmented Google Forms and static sites with a unified, high-performance community ecosystem.
 
-### Frontend
-- Next.js 14 (App Router) · TypeScript · Tailwind CSS 4
-- Framer Motion · Lucide Icons · Radix UI
-- Chart.js · i18n translations
+## 2. System Architecture
+The project follows a **Modern Full-Stack Architecture** (MERN variation):
 
-### Backend
-- Node.js · Express.js · TypeScript
-- MongoDB + Mongoose · JWT · bcrypt
-- OpenAI API · GitHub API · Nodemailer
+- **Frontend**: Next.js 15+ (App Router) using TypeScript, Tailwind CSS 4, and Framer Motion for premium interactivity.
+- **Backend**: Node.js & Express with TypeScript for a robust, type-safe RESTful API.
+- **Database**: MongoDB (Atlas) for flexible data modeling of users, challenges, and registrations.
+- **AI Core**: OpenRouter integration providing structured, Markdown-formatted analysis for every code submission.
+
+### **Data Flow**:
+`User IDE` ➔ `Next.js Frontend` ➔ `Express API (JWT Validation)` ➔ `Piston API (Execution)` ➔ `Gemini AI (Analysis)` ➔ `MongoDB (Persistence)` ➔ `JSON Response`
 
 ---
 
-## 📁 Project Structure
+## 3. Technology Stack
+| Layer | Technologies |
+| :--- | :--- |
+| **Frontend** | Next.js, React 19, Tailwind CSS 4, Framer Motion, Lucide icons, React-Markdown |
+| **Backend** | Node.js, Express, TypeScript, Mongoose, JWT, bcryptjs |
+| **AI / ML** | OpenRouter (google/gemini-2.0-flash-lite), prompt engineering for structured output |
+| **Infrastructure**| Piston API (Code Engine), MongoDB Atlas, Vercel (Frontend), Render (Backend) |
 
-```
+---
+
+## 4. Folder Structure
+```text
 gfg/
-├── client/                   # Next.js Frontend
-│   ├── src/
-│   │   ├── app/              # Pages (App Router)
-│   │   │   ├── page.tsx      # Landing page
-│   │   │   ├── login/        # Login
-│   │   │   ├── register/     # Register
-│   │   │   ├── events/       # Events listing
-│   │   │   ├── resources/    # Learning resources
-│   │   │   ├── challenges/   # Daily challenges
-│   │   │   ├── dashboard/    # Student dashboard
-│   │   │   ├── leaderboard/  # Rankings
-│   │   │   ├── ai/           # AI chat assistant
-│   │   │   ├── settings/     # User settings
-│   │   │   ├── help/         # FAQ & contact
-│   │   │   ├── feedback/     # Feedback form
-│   │   │   ├── admin/        # Admin panel
-│   │   │   └── auth/callback # GitHub OAuth callback
-│   │   ├── components/       # Reusable components
-│   │   ├── context/          # Auth & Theme providers
-│   │   └── lib/              # API client, i18n, utils
-│   └── package.json
-├── server/                   # Express.js Backend
-│   ├── src/
-│   │   ├── index.ts          # Entry point
-│   │   ├── config/db.ts      # MongoDB connection
-│   │   ├── models/           # 10 Mongoose schemas
-│   │   ├── controllers/      # 10 controllers
-│   │   ├── routes/           # 10 route files
-│   │   ├── middleware/       # auth, roleGuard, validate
-│   │   └── services/         # email service
-│   └── package.json
-├── .env.example
-├── .gitignore
-└── package.json              # Root (concurrently)
+├── client/                   # Next.js Frontend (Next.js 15, Tailwind 4)
+│   ├── src/app/              # App Router Pages (Dashboard, Challenges, Events)
+│   ├── src/components/       # UI Components (AI Chat, Code Editor, Modals)
+│   ├── src/lib/              # API Client (Shared logic with Auth/AI integration)
+├── server/                   # Express.js Backend (Typescript)
+│   ├── src/controllers/      # Business logic (AI analysis, Challenge validation)
+│   ├── src/models/           # MongoDB Schemas (User, Challenge, Submission)
+│   ├── src/routes/           # API Endpoints (Auth, AI, Events)
+│   ├── src/middleware/       # Auth guards and Role-based access control
 ```
 
 ---
 
-## 🚀 Quick Start
+## 5. Core Features & Logic
 
+### 💻 Automated Code Submission
+- **Internals**: Users write code in the integrated IDE. The backend sends the payload to a sandbox (Piston API), executes it against test cases, and awards points based on performance.
+- **AI Integration**: If a solution fails, the **AI Code Analyst** automatically reviews the logic and provides structured Markdown feedback (Headers, Bullet points, Labeled blocks).
+
+### 🔥 Student Engagement (Gamification)
+- **Streak Logic**: Daily activity is tracked. If a user misses a day, the streak resets. Consistent participation awards uniquebadges and higher Leaderboard placement.
+- **Heatmap**: A custom SVG-based contribution graph (similar to GitHub) visualizing daily coding frequency.
+
+---
+
+## 6. Database Design
+- **Users**: Profile info, total points, streak count, and roles (Admin/Student).
+- **Challenges**: Problem statements, difficulty levels, and hidden test cases.
+- **Submissions**: Historical logs of all code attempts, results, and AI feedback.
+- **Events**: Registration tracking for Individual and Team-based club activities.
+
+---
+
+## 7. Setup & Installation
 ### Prerequisites
 - Node.js 18+
-- MongoDB (local or Atlas)
+- MongoDB Instance
+- OpenRouter API Key
 
-### 1. Clone & Install
-```bash
-git clone <repo-url>
-cd gfg
-npm run install:all
-```
-
-### 2. Configure Environment
-```bash
-# Copy and edit the .env files
-cp .env.example server/.env
-# Edit server/.env with your MongoDB URI, JWT secret, etc.
-```
-
-### 3. Run Development Servers
-```bash
-npm run dev
-```
-This starts:
-- **Frontend**: http://localhost:3000
-- **Backend**: http://localhost:5000
+### Installation Steps
+1. **Clone & Install**:
+   ```bash
+   git clone https://github.com/DIWAKARDQ/GFGweb.git
+   cd GFGweb
+   ```
+2. **Backend Setup**:
+   ```bash
+   cd server && npm install
+   # Create .env with MONGODB_URI and OPENROUTER_API_KEY
+   npm run build && npm start
+   ```
+3. **Frontend Setup**:
+   ```bash
+   cd ../client && npm install
+   # Create .env.local with NEXT_PUBLIC_API_URL
+   npm run dev
+   ```
 
 ---
 
-## 🔧 Environment Variables
-
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `MONGODB_URI` | MongoDB connection string | ✅ |
-| `JWT_SECRET` | JWT signing secret | ✅ |
-| `GITHUB_CLIENT_ID` | GitHub OAuth app client ID | Optional |
-| `GITHUB_CLIENT_SECRET` | GitHub OAuth app secret | Optional |
-| `OPENAI_API_KEY` | OpenAI API key for AI assistant | Optional |
-| `SMTP_HOST/USER/PASS` | Email SMTP config | Optional |
-
----
-
-## 🌍 Deployment
-
-### Frontend → Vercel
-```bash
-cd client && npx vercel
-```
-
-### Backend → Render / Railway
-Deploy the `server/` directory with:
-- Build command: `npm run build`
-- Start command: `npm start`
-
-### Database → MongoDB Atlas
-Create a free cluster at [mongodb.com/atlas](https://mongodb.com/atlas)
-
----
-
-## 📝 API Endpoints
-
-| Method | Endpoint | Auth | Description |
-|--------|----------|------|-------------|
-| POST | `/api/auth/register` | ❌ | Register new user |
-| POST | `/api/auth/login` | ❌ | Login |
-| GET | `/api/auth/me` | ✅ | Get current user |
-| GET | `/api/events` | ❌ | List events |
-| POST | `/api/events/:id/register` | ✅ | Register for event |
-| GET | `/api/challenges/today` | ❌ | Today's challenge |
-| POST | `/api/challenges/:id/submit` | ✅ | Mark challenge done |
-| GET | `/api/resources?category=dsa` | ❌ | Get resources |
-| GET | `/api/leaderboard?filter=weekly` | ❌ | Get leaderboard |
-| POST | `/api/ai/chat` | ✅ | AI chat |
-| POST | `/api/github/sync` | ✅ | Sync GitHub data |
-| POST | `/api/feedback` | ✅ | Submit feedback |
-
----
-
-## 👥 Roles
-
-| Role | Capabilities |
-|------|-------------|
-| **Student** | View events, register, solve challenges, chat with AI, submit feedback |
-| **Admin** | All student capabilities + manage events/challenges/resources/users/achievements, view analytics |
+## 🛡️ Security & Performance
+- **JWT Authorization**: All user-specific requests are signed with stateless tokens for security.
+- **CORS Protection**: Access is restricted to trusted campus domains to prevent cross-site attacks.
+- **Sanitized Execution**: User code never runs on the main server; it is isolated in Piston containers to prevent server-side vulnerabilities.
 
 ---
 
 ## 📄 License
-
 MIT © GFG RIT Campus Club
 
 ---
-
-Made with 💚 by the GFG RIT Team
+Made with 💚 by the **GFG RIT Team**
+https://gf-gweb.vercel.app
